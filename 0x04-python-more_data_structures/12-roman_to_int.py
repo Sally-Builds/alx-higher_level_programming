@@ -13,7 +13,7 @@ def roman_to_int(roman_string):
         elif roman_dict[value[i - 1]] > roman_dict[value[i]]:
             total = total + roman_dict[value[i]]
         elif roman_dict[value[i - 1]] < roman_dict[value[i]]:
-            total = total - roman_dict[value[i]]
+            total = roman_dict[value[i]] - total
         else:
             total = total + roman_dict[value[i]]
 
