@@ -26,6 +26,7 @@ class Square:
         return self.__size * self.__size
 
     def size(self):
+        """get size"""
         return self.__size
 
     def size(self, value):
