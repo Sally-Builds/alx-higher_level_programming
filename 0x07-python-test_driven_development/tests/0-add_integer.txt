@@ -1,0 +1,26 @@
+The ```0-add_integer``` module
+==============================
+
+Function adds two numbers
+++++++++++++++++++++++++++++++
+
+>>> import sys
+>>> sys.path.append("../")
+>>> add_integer = __import__("0-add_integer").add_integer
+>>> add_integer(3, 5)
+8
+>>> add_integer(3, "you")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integer(3)
+101
+>>> add_integer("now")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer("now", "okay")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> 
