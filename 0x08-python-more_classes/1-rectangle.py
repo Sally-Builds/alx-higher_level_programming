@@ -19,9 +19,11 @@ class Rectangle:
         self.height = height
 
     def width(self):
+        """ get width"""
         return self.width
 
     def width(self, value):
+        """set width of rectangle"""
         if width < 0:
             raise ValueError("width must be >= 0")
         if not isinstance(value, int):
@@ -29,9 +31,11 @@ class Rectangle:
         self.width = value
 
     def width(self):
+        """ get width"""
         return self.height
 
     def height(self, value):
+        """setter height of rectangle"""
         if value < 0:
             raise ValueError("height must be >= 0")
         if not isinstance(value, int):
