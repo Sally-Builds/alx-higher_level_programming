@@ -5,11 +5,12 @@ Module: 0-add_integer
 This module performs mathematical operation addition
 """
 
+
 def add_integer(a, b=98):
-    """ 
+    """
     Adds two integers and returns the result
 
-    Args: 
+    Args:
         a (int or float): The first number to be added
         b (int or float, optional): The other number to add
 
