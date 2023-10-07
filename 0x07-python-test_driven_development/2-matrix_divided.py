@@ -17,24 +17,20 @@ def matrix_divided(matrix, div):
         TypeError: if matrix is not a list of list of numbers
         ZeroDivisionError: if the argument div is zero
     """
-    result = []
-
-    if not isinstance(matrix, list) or matrix == []:
+    if not all(isinstance(row, list) and all(isinstance(val, (int, float)) for val in row) for row in matrix):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-    
-    for i in range(len(matrix)):
-        if not isinstance(matrix[i], list):
-            raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-        if (i + 1) < len(matrix):
-            if len(matrix[i]) != len(matrix[i + 1]):
-                raise TypeError("Each row of the matrix must have the same size")
-        result.append([])
-        for j in range(len(matrix[i])):
-            if type(div) not in [float, int]:
-                raise TypeError("div must be a number")
-            if div == 0:
-                raise ZeroDivisionError("division by zero")
 
-            result[i].append(round(matrix[i][j] / div, 2))
+    # Check if each row of the matrix has the same size
+    if len(set(len(row) for row in matrix)) > 1:
+        raise TypeError("Each row of the matrix must have the same size")
+
+    # Check if div is a number (integer or float) and not equal to 0
+    if not isinstance(div, (int, float)):
+        raise TypeError("div must be a number")
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
+
+    # Divide all elements of the matrix by div and round to 2 decimal places
+    result = [[round(val / div, 2) for val in row] for row in matrix]
 
     return result
