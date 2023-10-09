@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module: unction that returns True if the object is an instance of, 
+""" Module: unction that returns True if the object is an instance of,
 or if the object is an instance of a class that inherited from,
 the specified class ; otherwise False"""
 
