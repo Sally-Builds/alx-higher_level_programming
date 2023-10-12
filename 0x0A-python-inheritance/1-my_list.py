@@ -5,4 +5,6 @@
 class MyList(list):
 
     def print_sorted(self):
-
+        for i in range(len(self)):
+            for j in range(len(self)):
+                if self[j] > self[j + 
