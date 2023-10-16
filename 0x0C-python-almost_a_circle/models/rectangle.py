@@ -1,12 +1,25 @@
 #!/usr/bin/python3
 """ Module: Rectangle class """
+
 from models.base import Base
 
-class Rectangle(Base):
-    """class """
 
+class Rectangle(Base):
+    """define Rectangle class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """ Instantiate the sides of the rectangle
+        Args:
+            width(int): width of the rectangle
+            height(int): height of the rectangle
+            x(int): rectangle side
+            y(int): rectangle side
+        Return:
+            nothing
+        Exception:
+            TypeError: occurs when any of the params is not a integer
+            ValueError: occurs when value is less than zero
+        """
         if not (isinstance(width, int) or isinstance(width, float)): 
             raise TypeError("width must be an integer")
         if not(isinstance(height, int) or isinstance(height, float)):
