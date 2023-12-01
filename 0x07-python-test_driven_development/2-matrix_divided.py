@@ -16,27 +16,22 @@ def matrix_divided(matrix, div):
     Returns:
         A new matrix which represents the result of the divisions
     """
+    if not isinstance(matrix, list) or matrix == []:
+        raise TypeError("matrix must be a matrix (list of lists) of integers/float")
+
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError("matrix must be a matrix (list of lists) of integers/float")
+    
+    if not all((isinstance(row, int) or isinstance(row, float)) for item in matrix for row in item):
+        raise TypeError("matrix must be a matrix (list of lists) of integers/float")
+    
+    if len(set(len(row) for row in matrix)) > 1:
+        raise TypeError("Each row of the matrix must have the same size")
+
     if (not isinstance(div, int) and not isinstance(div, float)):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    if not isinstance(matrix, list):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/float")
-
-    new_list = []
-    for i in range(len(matrix)):
-        if not isinstance(matrix[i], list):
-            raise TypeError("matrix must be a matrix (list of lists) of integers/float")
-
-        if i > 0:
-            if len(matrix[i]) != len(matrix[i - 1]):
-                raise TypeError("Each row of the matrix must have the same size")
-
-        new_list.append([])
-        for j in range(len(matrix[i])):
-            if (not isinstance(matrix[i][j], int) and not isinstance(matrix[i][j], float)):
-                raise TypeError("matrix must be a matrix (list of lists) of integers/float")
-            new_list[i].append(round((matrix[i][j] / div), 2))
-
+    new_list = [[round(el / div, 2) for el in item] for item in matrix]
     return new_list
