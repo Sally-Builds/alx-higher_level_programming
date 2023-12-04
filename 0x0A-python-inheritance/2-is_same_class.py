@@ -6,4 +6,4 @@ the specified class ; otherwise False"""
 
 def is_same_class(obj, a_class):
     """ returns True if is object of class or inherit from or False"""
-    return isinstance(obj, a_class)
+    return (type(obj) == a_class)
