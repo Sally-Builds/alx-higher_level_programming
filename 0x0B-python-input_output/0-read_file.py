@@ -5,5 +5,4 @@
 def read_file(filename=""):
     """ reads a file """
     with open(filename, 'r') as file:
-        for line in file:
-            print(line, end="");
+        print(file.read(), end="");
