@@ -2,8 +2,12 @@
 """Unittests for max_integer([..])."""
 
 import unittest
-max_integer = __import__('max_integer').max_integer
+#max_integer = __import__('max_integer').max_integer
+import importlib
 
+# Import the module dynamically using importlib
+max_integer_module = importlib.import_module('6-max_integer')
+max_integer = max_integer_module.max_integer
 
 class TestMaxInteger(unittest.TestCase):
     """Define unittests for max_integer([..])."""
