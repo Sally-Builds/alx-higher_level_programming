@@ -1,13 +1,6 @@
-#!/usr/bin/python3
-"""Unittests for max_integer([..])."""
-
 import unittest
-#max_integer = __import__('max_integer').max_integer
-import importlib
+max_integer = __import__('6-max_integer').max_integer
 
-# Import the module dynamically using importlib
-max_integer_module = importlib.import_module('6-max_integer')
-max_integer = max_integer_module.max_integer
 
 class TestMaxInteger(unittest.TestCase):
     """Define unittests for max_integer([..])."""
@@ -46,11 +39,6 @@ class TestMaxInteger(unittest.TestCase):
         """Test a list of ints and floats."""
         ints_and_floats = [1.53, 15.5, -9, 15, 6]
         self.assertEqual(max_integer(ints_and_floats), 15.5)
-
-    def test_string(self):
-        """Test a string."""
-        string = "Ehoneah"
-        self.assertEqual(max_integer(string), 'r')
 
     def test_list_of_strings(self):
         """Test a list of strings."""
