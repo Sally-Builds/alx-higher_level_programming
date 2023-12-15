@@ -1,59 +1,74 @@
 #!/usr/bin/python3
-""" Square class """
-
+"""Module that defines a square object"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """Defines a square class"""
+
     def __init__(self, size, x=0, y=0, id=None):
+        """Method that initialized the square
+        Args:
+           size: side's size of the square
+           x: Position on x axis.
+           y: Position on y axis.
+        Return:
+           Always nothing.
+        """
         super().__init__(size, size, x, y, id)
 
-    @property
+    def __str__(self):
+        """Method that returns a string"""
+        return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+            self.width))
+
+        @property
     def size(self):
+        """Getter the size of the square
+        """
         return self.width
 
     @size.setter
-    def size(self, size):
-        self.width = size
-        self.height = size
+    def size(self, value):
+        """Setter the size of the square
+        Args:
+           value: Size to assign
+        Return:
+           Always Nothing
+        """
+        self.width = value
+        self.heigth = value
 
     def update(self, *args, **kwargs):
+        """Method that update arguments for square object
+        Args:
+           *args: list of arguments.
+           **kwargs: Dictionary of the arguments.
+        Return:
+           Always nothing
         """
-        Update attributes in the order: id, width, height, x, y
-        """
-        if len(args) > 0:
-            if len(args) >= 1:
-                self.id = args[0]
-            if len(args) >= 2:
-                self.width = args[1]
-                self.height = args[1]
-            if len(args) >= 3:
-                self.x = args[2]
-            if len(args) >= 4:
-                self.y = args[3]
+        dict_order = ['id', 'size', 'x', 'y']
+        if args is not None and bool(args) is True:
+            i = 0
+            for key in dict_order:
+                try:
+                    setattr(self, key, args[i])
+                except IndexError:
+                    pass
+                i += 1
         else:
-            for key, value in kwargs.items():
-                if key == 'size':
-                    self.width = value
-                    self.height = value
-                if key == 'id':
-                    self.id = value
-                if key == 'x':
-                    self.x = value
-                if key == 'y':
-                    self.y = value
+            for key in dict_order:
+                try:
+                    setattr(self, key, kwargs[key])
+                except KeyError:
+                    pass
 
     def to_dictionary(self):
+        """Method that returns the dictionary
+           representation of a Square.
         """
-        Returns the dictionary representation of a Rectangle
-        """
-        return {
-            'id': self.id,
-            'size': self.width,
-            'x': self.x,
-            'y': self.y
-        }
-
-
-    def __str__(self):
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        dict_order = ['id', 'x', 'size', 'y']
+        dict_attrs = {}
+        for key in dict_order:
+            dict_attrs[key] = getattr(self, key)
+        return dict_attrs
