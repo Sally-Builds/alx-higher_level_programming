@@ -129,11 +129,10 @@ class Rectangle(Base):
             print(" " * self.x + self.width * '#')
 
     def __str__(self):
-        """Method that override str method
-        """
+        """Method that override str method"""
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
-            self.y, self.width,
-            self.height))
+                self.y, self.width,
+                self.height))
 
         def update(self, *args, **kwargs):
             """Method that changed the order of arguments for rectangle object
