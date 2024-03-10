@@ -1,0 +1,9 @@
+HTTP/1.1 404 Not Found
+Server: nginx/1.18.0 (Ubuntu)
+Date: Sun, 10 Mar 2024 12:16:02 GMT
+Content-Type: text/html
+Content-Length: 24
+Connection: keep-alive
+ETag: "65ed3b89-18"
+
+Ceci n'est pas une page
